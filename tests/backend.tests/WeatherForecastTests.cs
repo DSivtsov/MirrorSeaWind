@@ -1,8 +1,6 @@
-﻿using System;
-using Xunit;
-using backend;
+﻿using Backend.Models;
 
-namespace backend.tests;
+namespace Backend.Tests;
 
 public class WeatherForecastTests
 {
