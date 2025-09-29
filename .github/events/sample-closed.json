@@ -1,0 +1,14 @@
+{
+  "action": "closed",
+  "issue": {
+    "number": 123,
+    "title": "Test issue",
+    "state": "closed",
+    "user": { "login": "Denis" }
+  },
+  "repository": {
+    "full_name": "DSivtsov/MirrorSeaWind",
+    "default_branch": "develop"
+  },
+  "sender": { "login": "Denis" }
+}
