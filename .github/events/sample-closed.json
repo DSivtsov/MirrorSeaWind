@@ -4,7 +4,10 @@
     "number": 123,
     "title": "Test issue",
     "state": "closed",
-    "user": { "login": "Denis" }
+    "user": { "login": "Denis" },
+    "labels": [
+      { "name": "EPIC" }
+  ]
   },
   "repository": {
     "full_name": "DSivtsov/MirrorSeaWind",
