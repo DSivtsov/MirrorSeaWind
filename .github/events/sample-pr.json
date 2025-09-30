@@ -1,0 +1,26 @@
+{
+  "action": "opened",
+  "number": 6,
+  "pull_request": {
+    "number": 6,
+    "state": "open",
+    "title": "Feature: add new course API",
+    "body": "Implements new feature and closes #3",
+    "user": {
+      "login": "Denis"
+    },
+    "head": {
+      "ref": "develop"
+    },
+    "base": {
+      "ref": "main"
+    }
+  },
+  "repository": {
+    "name": "MirrorSeaWind",
+    "full_name": "DSivtsov/MirrorSeaWind"
+  },
+  "sender": {
+    "login": "Denis"
+  }
+}

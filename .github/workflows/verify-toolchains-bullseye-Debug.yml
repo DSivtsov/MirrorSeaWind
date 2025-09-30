@@ -1,0 +1,70 @@
+# .github/workflows/verify-toolchains.yml
+name: Verify toolchains
+on: [workflow_dispatch]
+
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - if: ${{ env.ACT }}
+        run: |
+          cat /etc/os-release
+          apt-cache policy libicu70 || true
+
+      - if: ${{ env.ACT }}
+        run: |
+          cat /etc/os-release
+          which curl || true
+          which wget || true
+
+      - name: Install prerequisites (act only)
+        if: ${{ env.ACT }}   # act выставляет ACT=true
+      # 1. Install curl
+      # 2. Install libicu
+        run: |
+          set -euo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+
+          # Диагностика
+          cat /etc/os-release || true
+          echo "=== before sources ==="
+          cp /etc/apt/sources.list /etc/apt/sources.list.bak
+          grep -h -vE '^(#|$)' /etc/apt/sources.list /etc/apt/sources.list.d/*.list 2>/dev/null || true
+
+          # Починить репозитории для "Debian GNU/Linux 11 (bullseye)"
+          cat >/etc/apt/sources.list <<'EOF'
+          deb http://deb.debian.org/debian bullseye main contrib non-free
+          deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+          deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+          EOF
+
+          apt-get update -o Acquire::Retries=3
+
+          apt-get install -y --no-install-recommends \
+            curl wget ca-certificates unzip tar tzdata locales libicu67
+
+          # (опционально) сгенерировать локаль, если нужно
+          locale-gen en_US.UTF-8 || true
+
+      # .NET: использовать SDK из global.json
+      - name: Install SDK из global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      # (опционально) Node setup
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: 'npm'
+      # Node: использовать версию из .nvmrc
+
+      - name: Show versions
+        env:
+          DOTNET_CLI_TELEMETRY_OPTOUT: 1
+          DOTNET_NOLOGO: 1
+        run: |
+          dotnet --info
+       #   node -v
+       #   npm -v

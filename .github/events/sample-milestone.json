@@ -1,13 +1,17 @@
 {
-  "action": "closed",
+  "action": "milestoned",
   "issue": {
-    "number": 4,
-    "title": "Test issue",
-    "state": "closed",
+    "number": 1,
+    "title": "EPIC: Курсы и лекции",
+    "state": "open",
     "user": { "login": "Denis" },
     "labels": [
       { "name": "EPIC" }
-  ]
+    ],
+    "milestone": {
+      "number": 1,
+      "title": "Sprint 1"
+    }
   },
   "repository": {
     "full_name": "DSivtsov/MirrorSeaWind",

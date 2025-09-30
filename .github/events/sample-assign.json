@@ -1,0 +1,14 @@
+{
+  "action": "assigned",
+  "assignee": { "login": "DSivtsov" },
+  "issue": {
+    "number": 1,
+    "title": "EPIC: Курсы и лекции",
+    "state": "open",
+    "user": { "login": "DSivtsov" },
+    "labels": [{ "name": "EPIC" }],
+    "assignees": [{ "login": "DSivtsov" }]
+  },
+  "repository": { "full_name": "DSivtsov/MirrorSeaWind", "default_branch": "develop" },
+  "sender": { "login": "Denis" }
+}
