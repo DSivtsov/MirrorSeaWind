@@ -48,7 +48,7 @@ jobs:
               await github.rest.issues.removeAssignees({ owner, repo, issue_number, assignees: [login] });
               await github.rest.issues.createComment({
                 owner, repo, issue_number,
-                body: `Назначение исполнителя на EPIC не допускается правилами workflow. Удалён @${login}.`
+                body: `Назначение исполнителя на EPIC не допускается правилами workflow. Назначенный исполнитель @${login} снят.`
               });
             }
 
