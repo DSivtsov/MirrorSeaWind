@@ -32,7 +32,8 @@ jobs:
             await github.rest.issues.update({ owner, repo, issue_number, state: 'open' });
             await github.rest.issues.createComment({
               owner, repo, issue_number,
-              body: 'This EPIC was closed directly. According to the workflow, EPICs should be closed by the release process, not manually. Re-opening automatically.'
+              body: 'Попытка закрыть EPIC. Согласно workflow, закрытие эпика выполняется только в рамках релизного процесса, а не вручную. \
+                          Эпик был открыт снова автоматически.'
             });
 
       - name: Unassign if someone assigned an EPIC
@@ -47,7 +48,7 @@ jobs:
               await github.rest.issues.removeAssignees({ owner, repo, issue_number, assignees: [login] });
               await github.rest.issues.createComment({
                 owner, repo, issue_number,
-                body: `Assignment to EPIC is not allowed by the workflow. Removed @${login}.`
+                body: `Назначение исполнителя на EPIC не допускается правилами workflow. Назначенный исполнитель @${login} снят.`
               });
             }
 
@@ -61,7 +62,7 @@ jobs:
             await github.rest.issues.update({ owner, repo, issue_number, milestone: null });
             await github.rest.issues.createComment({
               owner, repo, issue_number,
-              body: 'Milestone was removed. EPICs are not tracked by milestones.'
+              body: 'Milestone был удалён. EPIC-и не отслеживаются через Milestone.'
             });
 
       - name: Done
