@@ -1,0 +1,39 @@
+# .github/workflows/verify-toolchains.yml
+name: Verify toolchains
+on: [workflow_dispatch]
+
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # создаём директорию NuGet-кэша заранее
+      - name: Create NuGet cache folder
+        run: mkdir -p ~/.nuget/packages
+
+      # .NET: использовать SDK из global.json
+      - name: Install SDK из global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: |
+            **/*.csproj
+            **/packages.lock.json
+      # (опционально) Node setup
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: .nvmrc
+      #     cache: 'npm'
+      # Node: использовать версию из .nvmrc
+
+      # 4) Обычный цикл
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore -warnaserror
+
+      - name: Test
+        run: dotnet test -c Release --no-build
