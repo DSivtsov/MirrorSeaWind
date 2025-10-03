@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/DSivtsov/SeaWind/main/assets/ChatGPSeaWindLogo.png" alt="SeaWind Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/DSivtsov/MirrorSeaWind/refs/heads/develop/assets/ChatGPTestSeaWindLogo.png" alt="TestSeaWind Logo" width="200"/>
 </p>
 
-<h1 align="center">SeaWind ASP.NET Project</h1>
+<h1 align="center">Test SeaWind ASP.NET Project</h1>
 
 <p align="center">
   <a href="https://github.com/username/repo/blob/main/LICENSE">
@@ -17,55 +17,9 @@
 
 ## 🚀 About
 
-SeaWind is a sample **ASP.NET Core** project.  
-It demonstrates best practices for building modern web apps with C#, .NET, and GitHub Actions CI/CD.
+TestSeaWind is a companion project for the main repository [SeaWind](https://github.com/DSivtsov/SeaWind).
 
----
-
-## 🔧 Features
-
-- ASP.NET Core Web API  
-- Entity Framework Core  
-- Authentication & Authorization (JWT)  
-- Unit & Integration Tests  
-- Docker support  
-
----
-
-## 📦 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/username/repo.git
-cd repo
-
-# Run the project
-dotnet run
-```
-
----
-
-## ✅ CI/CD Status
-
-🚧 CI/CD workflow will be added soon (GitHub Actions planned).  
-<!-- Later replace this line with a badge, e.g.:
-[![.NET Build](https://github.com/username/SeaWind/actions/workflows/dotnet.yml/badge.svg)](https://github.com/username/SeaWind/actions/workflows/dotnet.yml)
--->
-
----
-
-=======
-## 👥 Project Team
-
-[![Tatyana Basargina](https://img.shields.io/badge/Tatyana-Basargina-blue)](team/TatyanaBasargina.md)
-[![Denis Sivtsov](https://img.shields.io/badge/Denis-Sivtsov-green)](team/DenisSivtsov.md)
-[![Magomed Chapaev](https://img.shields.io/badge/Magomed-Chapaev-blue)](team/MagomedChapaev.md)
-[![Oleg Kalashnikov](https://img.shields.io/badge/Oleg-Kalashnikov-green)](team/OlegKalashnikov.md)
-[![Aleksei Opeikin](https://img.shields.io/badge/Aleksei-Opeikin-blue)](team/AlekseiOpeikin.md)
-[![Petr Liapidevskiy](https://img.shields.io/badge/Petr-Liapidevskiy-green)](team/PetrLiapidevskiy.md)
-[![OlegFilippskii](https://img.shields.io/badge/Oleg-Filippskii-blue)](team/OlegFilippskii.md)
-
----
+Its purpose is to experiment with procedures and techniques before applying them to the main site.
 
 ## 📜 License
 
